@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getHeaderData } from "../redux/slices/HeaderSlice";
+import { getHeader } from "../redux/slices/HeaderSlice";
 import { AppDispatch, RootState } from "../redux";
+import HeaderDataComponent from "./HeaderDataComponent";
 
 const HeaderComponent: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { dataHeader, loading, error } = useSelector(
+  const { header, loading, error } = useSelector(
     (state: RootState) => state.header
   );
 
   useEffect(() => {
-    dispatch(getHeaderData());
+    dispatch(getHeader());
   }, [dispatch]);
 
   return (
@@ -24,15 +25,15 @@ const HeaderComponent: React.FC = () => {
           <section
             className={`bg-[url(https://ik.imagekit.io/lumoshiveAcademy/Furniture/8f82d2c087c3c1808660cf2b4c6dc4a5.webp)] bg-cover bg-center bg-no-repeat`}
           >
-            <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+            <div className="relative mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
               <div className="mx-auto max-w-3xl text-center">
                 <h1 className=" text-white bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-                  {dataHeader.title}
+                  {header.title}
                   {/* <span className="sm:block"> Increase Conversion. </span> */}
                 </h1>
 
                 <p className="mx-auto mt-4 max-w-xl text-white sm:text-xl/relaxed">
-                  {dataHeader.description}
+                  {header.description}
                 </p>
 
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -46,6 +47,11 @@ const HeaderComponent: React.FC = () => {
                     </span>
                   </a>
                 </div>
+              </div>
+            </div>
+            <div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full ">
+                <HeaderDataComponent />
               </div>
             </div>
           </section>

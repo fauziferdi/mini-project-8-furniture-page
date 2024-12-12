@@ -3,35 +3,32 @@ import axios from "axios";
 
 const API = import.meta.env.VITE_API_URL;
 
-interface HeaderData {
+interface Header {
   title: string;
   description: string;
   banner: string;
 }
 
-export const getHeaderData = createAsyncThunk(
-  "header/getHeaderData",
-  async () => {
-    try {
-      const response = await axios.get<HeaderData>(`${API}/api/header`);
-      return response.data;
-    } catch (error: any) {
-      if (axios.isAxiosError(error)) {
-        console.error("Axios Error:", error.message);
-      } else {
-        console.error("Error:", error);
-      }
-      throw error;
+export const getHeader = createAsyncThunk("header/getHeader", async () => {
+  try {
+    const response = await axios.get<Header>(`${API}/api/header`);
+    return response.data;
+  } catch (error: any) {
+    if (axios.isAxiosError(error)) {
+      console.error("Axios Error:", error.message);
+    } else {
+      console.error("Error:", error);
     }
+    throw error;
   }
-);
+});
 
 const initialState: {
-  dataHeader: HeaderData;
+  header: Header;
   loading: boolean;
   error: string | undefined | null;
 } = {
-  dataHeader: {
+  header: {
     title: "",
     description: "",
     banner: "",
@@ -46,15 +43,15 @@ const headerSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getHeaderData.pending, (state) => {
+      .addCase(getHeader.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getHeaderData.fulfilled, (state, action) => {
+      .addCase(getHeader.fulfilled, (state, action) => {
         state.loading = false;
-        state.dataHeader = action.payload;
+        state.header = action.payload;
       })
-      .addCase(getHeaderData.rejected, (state, action) => {
+      .addCase(getHeader.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });
