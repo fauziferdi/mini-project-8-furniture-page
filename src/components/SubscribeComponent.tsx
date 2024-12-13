@@ -3,7 +3,6 @@ import { AppDispatch, RootState } from "../redux";
 import { useDispatch, useSelector } from "react-redux";
 import { addSubscribe } from "../redux/slices/SubscribeSlice";
 import Swal from "sweetalert2";
-import banner from "../assets/image/subscribeBanner.jpg";
 
 const SubscribeComponent: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();

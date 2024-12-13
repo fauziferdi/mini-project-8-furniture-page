@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 import logo from "../assets/image/FurniShop.png";
 const NavbarComponent: React.FC = () => {
   return (

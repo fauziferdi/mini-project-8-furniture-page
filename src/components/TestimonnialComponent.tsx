@@ -4,7 +4,7 @@ import { AppDispatch, RootState } from "../redux";
 import { useDispatch, useSelector } from "react-redux";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-
+import bannerTestimonial from "../assets/image/testimonialBanner.png";
 const TestimonnialComponent: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const { testimonial, loading, error } = useSelector(
@@ -132,9 +132,9 @@ const TestimonnialComponent: React.FC = () => {
 
             <div className="flex justify-center">
               <img
-                src="../imgSecondFeatures.png"
+                src={bannerTestimonial}
                 className="rounded w-3/4"
-                alt=""
+                alt="testimonial benner"
               />
             </div>
           </div>
