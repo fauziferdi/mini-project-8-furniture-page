@@ -30,7 +30,9 @@ const ItemProductComponent: React.FC<ItemProductComponentProps> = ({
             {product.title}
           </h3>
           <div className="flex gap-2">
-            <p className="mt-1.5 text-sm text-gray-700">${product.price}</p>
+            <p className="mt-1.5 text-sm text-gray-700">
+              ${product.price_after_discount || product.price}
+            </p>
             {product.price_after_discount && (
               <p className="mt-1.5 text-sm text-gray-500 line-through">
                 ${product.price}
