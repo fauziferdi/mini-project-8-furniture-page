@@ -3,6 +3,8 @@ import headerReducer from "./slices/HeaderSlice";
 import headerDataReducer from "./slices/DataHeaderSlice";
 import categoryReducer from "./slices/CategorySlice";
 import productReducer from "./slices/ProductSlice";
+import testimonialReducer from "./slices/TestimonialSlice";
+import subscribeReducer from "./slices/SubscribeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +12,8 @@ export const store = configureStore({
     headerData: headerDataReducer,
     category: categoryReducer,
     product: productReducer,
+    testimonial: testimonialReducer,
+    subscribe: subscribeReducer,
   },
 });
 

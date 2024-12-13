@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface ItemProductComponentProps {
   product: {
@@ -15,7 +16,7 @@ const ItemProductComponent: React.FC<ItemProductComponentProps> = ({
 }) => {
   return (
     <div>
-      <a href="#" className="group relative block overflow-hidden">
+      <Link to="#" className="group relative block overflow-hidden">
         <div className="relative w-full h-64 overflow-hidden border border-gray-100 bg-white p-6 sm:h-72">
           <img
             src={product.image}
@@ -28,9 +29,16 @@ const ItemProductComponent: React.FC<ItemProductComponentProps> = ({
           <h3 className="mt-2 text-lg font-medium text-gray-900">
             {product.title}
           </h3>
-          <p className="mt-1.5 text-sm text-gray-700">${product.price}</p>
+          <div className="flex gap-2">
+            <p className="mt-1.5 text-sm text-gray-700">${product.price}</p>
+            {product.price_after_discount && (
+              <p className="mt-1.5 text-sm text-gray-500 line-through">
+                ${product.price}
+              </p>
+            )}
+          </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

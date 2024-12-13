@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface ItemCatagoryComponentProps {
   category: {
@@ -13,7 +14,7 @@ const ItemCatagoryComponent: React.FC<ItemCatagoryComponentProps> = ({
   return (
     <blockquote className="flex h-full flex-col justify-between bg-white shadow-sm">
       <div>
-        <a href="#" className="group relative block bg-black">
+        <Link to="#" className="group relative block bg-black">
           <img
             alt={category.title}
             src={category.image}
@@ -28,7 +29,7 @@ const ItemCatagoryComponent: React.FC<ItemCatagoryComponentProps> = ({
               {category.title}
             </p>
           </div>
-        </a>
+        </Link>
       </div>
     </blockquote>
   );
