@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         greenCstm: "#286F6C",
+        grayCstm: "#1B1A16",
       },
     },
   },
